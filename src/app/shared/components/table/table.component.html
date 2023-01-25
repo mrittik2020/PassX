@@ -1,0 +1,136 @@
+<div class="main">
+    <div class="container">
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+
+                        <ng-container>
+                            <th (mouseenter)="mousein('icon-1')" (mouseleave)="mouseout('icon-1')"
+                                (click)="onClick('icon-1','id')">
+                                <div class="sort">
+                                    <span>SL No</span>
+                                    <mat-icon id="icon-1" area-sort="none">arrow_upward</mat-icon>
+                                </div>
+                            </th>
+
+                            <th (mouseenter)="mousein('icon-2')" (mouseleave)="mouseout('icon-2')">
+                                <div class="sort">
+                                    <span>Website</span>
+                                    <!-- <mat-icon id="icon-2" area-sort="none">arrow_upward</mat-icon> -->
+                                </div>
+                            </th>
+
+                            <th (mouseenter)="mousein('icon-3')" (mouseleave)="mouseout('icon-3')"
+                                (click)="onClick('icon-3','name')">
+                                <div class="sort">
+                                    <span>Name</span>
+                                    <mat-icon id="icon-3" area-sort="none">arrow_upward</mat-icon>
+                                </div>
+                            </th>
+
+                            <th (mouseenter)="mousein('icon-4')" (mouseleave)="mouseout('icon-4')"
+                                (click)="onClick('icon-4','username')">
+                                <div class="sort">
+                                    <span>User Name</span>
+                                    <mat-icon id="icon-4" area-sort="none">arrow_upward</mat-icon>
+                                </div>
+                            </th>
+
+                            <th (mouseenter)="mousein('icon-5')" (mouseleave)="mouseout('icon-5')"
+                                (click)="onClick('icon-5','dob')">
+                                <div class="sort">
+                                    <span>DOB</span>
+                                    <mat-icon id="icon-5" area-sort="none">arrow_upward</mat-icon>
+                                </div>
+                            </th>
+
+                            <th (mouseenter)="mousein('icon-6')" (mouseleave)="mouseout('icon-6')"
+                                (click)="onClick('icon-6','last_seen')">
+                                <div class="sort">
+                                    <span>Last Seen</span>
+                                    <mat-icon id="icon-6" area-sort="none">arrow_upward</mat-icon>
+                                </div>
+                            </th>
+
+                            <th (mouseenter)="mousein('icon-7')" (mouseleave)="mouseout('icon-7')">
+                                <div class="sort">
+                                    <span>Action</span>
+                                </div>
+                            </th>
+                        </ng-container>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    <tr *ngFor="let user of dataSheet">
+                        <td>{{user.id}}</td>
+                        <td>
+                            <fa-icon [icon]=dd size="3x"></fa-icon>
+                        </td>
+                        <td> {{user.name}}</td>
+                        <td> {{user.username}}</td>
+                        <td> {{user.dob}}</td>
+                        <td> {{user.last_seen}}</td>
+                        <td id="action-btn">
+                            <button class="act_btn" [id]="'b'+user.id" mat-raised-button (click)="edit(user.id)"
+                                color="primary">Edit</button>
+                            <div class="edit_d{{user.id}} editbtn">
+                                <button mat-raised-button color="primary">Save</button>
+                                <button mat-raised-button (click)="cancel(user.id)" color="warn">Cancel</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-nav">
+
+            <div class="select">
+                <p>Item per page</p>
+                <mat-form-field appearance="fill">
+                    <mat-select (selectionChange)="lastpage()" [(value)]='selected'>
+                        <mat-option value=10>10</mat-option>
+                        <mat-option value=30>30</mat-option>
+                        <mat-option value=100>100</mat-option>
+                        <mat-option value=200>200</mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="page-nav-center">
+                <div class="page-cc">
+                    <button mat-raised-button (click)="currentPage = 1;sliceData()" [disabled]="currentPage==1"
+                        color="primary">
+                        <fa-icon title="First Page" [icon]=AnglesLeft size="2x"></fa-icon>
+                    </button>
+
+                    <button mat-raised-button (click)="currentPage= currentPage - 1;sliceData()"
+                        [disabled]="currentPage==1" color="primary">
+                        <fa-icon title="Previous Page" [icon]=AngleLeft size="2x"></fa-icon>
+                    </button>
+
+                    <span>Page {{currentPage}} out of {{ lpagecc}}</span>
+
+                    <button mat-raised-button (click)="currentPage= currentPage + 1;sliceData()"
+                        [disabled]="currentPage== lpagecc" color="primary">
+                        <fa-icon title="Next Page" [icon]=AngleRight size="2x"></fa-icon>
+                    </button>
+
+                    <button mat-raised-button (click)="currentPage =  lpagecc;sliceData()"
+                        [disabled]="currentPage== lpagecc" color="primary">
+                        <fa-icon title="Last Page" [icon]=AnglesRight size="2x"></fa-icon>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
