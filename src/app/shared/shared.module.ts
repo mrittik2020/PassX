@@ -26,7 +26,6 @@ import { TransformPipe } from './pipes/transform.pipe';
   ],
   imports: [
     CommonModule,
-
     MaterialModule,
     RouterModule,
   ],

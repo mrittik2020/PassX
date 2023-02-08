@@ -12,6 +12,7 @@ export class TransformPipe implements PipeTransform {
     }
     else state = -1;
 
+    
     if (type === "String") {
       return this.textSort(data, fild, state);
     }
