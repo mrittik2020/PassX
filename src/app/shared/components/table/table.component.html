@@ -7,7 +7,7 @@
 
                         <ng-container>
                             <th (mouseenter)="mousein('icon-1')" (mouseleave)="mouseout('icon-1')"
-                                (click)="onClick('icon-1','id');fild='id';type='Num';test();">
+                                (click)="onClick('icon-1');fild='id';type='Num';">
                                 <div class="sort">
                                     <span>SL No</span>
                                     <mat-icon id="icon-1" area-sort="none">arrow_upward</mat-icon>
@@ -22,7 +22,7 @@
                             </th>
 
                             <th (mouseenter)="mousein('icon-3')" (mouseleave)="mouseout('icon-3')"
-                                (click)="onClick('icon-3','name');fild='name';type='Str';test();">
+                                (click)="onClick('icon-3');fild='name';type='Str';">
                                 <div class="sort">
                                     <span>Name</span>
                                     <mat-icon id="icon-3" area-sort="none">arrow_upward</mat-icon>
@@ -30,7 +30,7 @@
                             </th>
 
                             <th (mouseenter)="mousein('icon-4')" (mouseleave)="mouseout('icon-4')"
-                                (click)="onClick('icon-4','username');fild='username';type='Str';test();">
+                                (click)="onClick('icon-4');fild='username';type='Str';">
                                 <div class="sort">
                                     <span>User Name</span>
                                     <mat-icon id="icon-4" area-sort="none">arrow_upward</mat-icon>
@@ -38,7 +38,7 @@
                             </th>
 
                             <th (mouseenter)="mousein('icon-5')" (mouseleave)="mouseout('icon-5')"
-                                (click)="onClick('icon-5','dob');fild='dob';type='Date';test();">
+                                (click)="onClick('icon-5');fild='dob';type='Date';">
                                 <div class="sort">
                                     <span>DOB</span>
                                     <mat-icon id="icon-5" area-sort="none">arrow_upward</mat-icon>
@@ -46,7 +46,7 @@
                             </th>
 
                             <th (mouseenter)="mousein('icon-6')" (mouseleave)="mouseout('icon-6')"
-                                (click)="onClick('icon-6','last_seen');fild='last_seen';type='Date';test();">
+                                (click)="onClick('icon-6');fild='last_seen';type='Date';">
                                 <div class="sort">
                                     <span>Last Seen</span>
                                     <mat-icon id="icon-6" area-sort="none">arrow_upward</mat-icon>
@@ -68,7 +68,7 @@
         <div class="tbl-content">
             <table cellpadding="0" cellspacing="0" border="0">
                 <tbody>
-                    <tr *ngFor="let user of dataSheet|mshort:fild:type:order|mslice:currentPage:lastPage; ">
+                    <tr *ngFor="let user of dataSheet|mslice:currentPage:item_per_page|mshort:fild:type:order; ">
                         <td>{{user.id}}</td>
                         <td>
                             <fa-icon [icon]=dd size="3x"></fa-icon>
@@ -95,20 +95,19 @@
             <div class="select">
                 <p>Item per page</p>
                 <mat-form-field appearance="fill">
-                    <mat-select (selectionChange)="lastpage()" [(value)]='selected'>
+                    <mat-select (selectionChange)="currentPage = 1;lastpage();fild = 'id';type = 'Num';
+                    order = true;attrClear()" [(value)]='selected'>
                         <mat-option value=10>10</mat-option>
                         <mat-option value=30>30</mat-option>
                         <mat-option value=100>100</mat-option>
                         <mat-option value=200>200</mat-option>
-
                     </mat-select>
                 </mat-form-field>
             </div>
 
             <div class="page-nav-center">
                 <div class="page-cc">
-                    <button mat-raised-button (click)=" currentPage = 1;" [disabled]="currentPage==1"
-                        color="primary">
+                    <button mat-raised-button (click)=" currentPage = 1;" [disabled]="currentPage==1" color="primary">
                         <fa-icon title="First Page" [icon]=AnglesLeft size="2x"></fa-icon>
                     </button>
 

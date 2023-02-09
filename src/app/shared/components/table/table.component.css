@@ -90,13 +90,7 @@ tr>th:nth-child(2) {
     margin-right: 10px;
 }
 
-/* 
-  .edit_d1{
-    display: block !important;
-  }
-  #b1{
-    display: none !important;
-  } */
+
 
 .page-nav {
     display: flex;
@@ -138,7 +132,7 @@ tr>th:nth-child(2) {
     display: flex;
     align-items: flex-start;
     background: darkcyan;
-    height: 80%;
+    height: 95%;
     margin: 0 20px 0 20px;
     justify-content: center;
 }

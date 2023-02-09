@@ -2,9 +2,6 @@ import { Component, ElementRef } from '@angular/core';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faAnglesLeft, faAngleRight, faAngleLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { TransformPipe } from '../../pipes/transform.pipe';
-import { MslicePipe } from '../../pipes/mslice.pipe';
-import { MshortPipe } from './../../pipes/mshort.pipe';
 
 import * as _ from 'lodash';
 
@@ -24,7 +21,7 @@ export class TableComponent {
   uparrow = faArrowUp;
 
   headerArray = ["SL No", "Website", "Name", "User Name", "DOB", "Last Seen", "Action"];
-  usersArray = [{
+  dataSheet = [{
     "id": 1,
     "name": "Berky Lesmonde",
     "username": "blesmonde0",
@@ -625,23 +622,19 @@ export class TableComponent {
     "dob": "7/8/1975",
     "last_seen": "1997-08-21 22:52:38"
   }];
-  dataSheet = _.clone(this.usersArray);
   rowNumber = this.dataSheet.length;
   keys = Object.keys(this.dataSheet[0]);
-
-
 
   selected = '10';
   currentPage: number = 1;
   item_per_page: number = Number(this.selected);
   lastPage = this.lastpage();
-  // Default Sorting..
+  // Default Sorting...
   fild: string = 'id';
   type: string = 'Num';
   order: boolean = true;
 
   lastpage() {
-    // this.currentPage = 1;
     this.item_per_page = Number(this.selected);
     let lpg = Math.trunc(this.rowNumber / this.item_per_page);
     if (this.rowNumber % this.item_per_page > 0) {
@@ -650,16 +643,15 @@ export class TableComponent {
     else {
       lpg = lpg;
     }
-    // this.sliceData();
     this.lastPage = lpg;
     return lpg
   }
 
-  test(){
-    console.log("Testing==>",this.fild);
-    console.log("Testing==>",this.type);
-    console.log("Testing==>",this.order);
-  }
+  // test(){
+  //   console.log("Testing==>",this.fild);
+  //   console.log("Testing==>",this.type);
+  //   console.log("Testing==>",this.order);
+  // }
 
 
 
@@ -681,11 +673,9 @@ export class TableComponent {
     }
   }
 
-  onClick(e1: String, e2: String) {
+  onClick(e1: String) {
     const pp = this.tHeadElement.querySelector('#' + e1) as HTMLElement;
     var a_ttr: String = pp.getAttribute('area-sort') || '';
-    // console.log(a_ttr);
-    // console.log(this.keys);
 
     if (a_ttr === "none") {
       // Clear the area-sort
@@ -694,20 +684,16 @@ export class TableComponent {
       pp.setAttribute('area-sort', 'ascending');
       pp.style.cssText = "opacity: 1";
       this.order = true;
-      // this.applySort(e2, true);
     }
     else if (a_ttr === "ascending") {
       pp.setAttribute('area-sort', 'descending');
       pp.style.cssText = " transform: rotate(180deg) translateX(5px); opacity: 1; ";
       this.order = false;
-      // this.applySort(e2, false);
     }
     else if (a_ttr === "descending") {
       pp.setAttribute('area-sort', 'none');
       pp.style.cssText = "opacity: 0; transform: rotate(0deg);";
       this.order = true;
-      // this.applySort('SL No', true);
-
     }
     else {
       console.log("---xxxx--- Fatal Error! xxx---xxx");
@@ -733,52 +719,18 @@ export class TableComponent {
     }
   }
 
-  // applySort(fild: String, order: Boolean) {
-  //   if (fild === 'SL No') {
-  //     this.dataSheet = this.sortData.transform(this.dataSheet, this.keys[0], "Number", order);
-  //   }
-  //   else if (fild === 'Name') {
-  //     this.dataSheet = this.sortData.transform(this.dataSheet, this.keys[1], "String", order);
-  //   }
-  //   else if (fild === 'User Name') {
-  //     this.dataSheet = this.sortData.transform(this.dataSheet, this.keys[2], "String", order);
-  //   }
-  //   else if (fild === 'DOB') {
-  //     this.dataSheet = this.sortData.transform(this.dataSheet, this.keys[3], "Date", order);
-  //   }
-  //   else if (fild === 'Last Seen') {
-  //     this.dataSheet = this.sortData.transform(this.dataSheet, this.keys[4], "Date", order);
-  //   }
-  //   else {
-  //     console.log("Same State");
-  //   }
-  // }
-
- 
-  // sliceData(data: any[] = this.usersArray, page: number = this.currentPage, itemsPerPage: number = Number(this.selected)) {
-  //   const startIndex = (page - 1) * itemsPerPage;
-  //   const endIndex = startIndex + itemsPerPage;
-  //   this.dataSheet = _.clone(data.slice(startIndex, endIndex));
-  // }
-
   edit(e: any) {
-    // console.log(this.currentPage);
-    // console.log('==>', this.lpagecc);
-    // console.log(Number(this.selected));
     console.log(e);
     const mdiv = this.tHeadElement.querySelectorAll('.editbtn') as NodeListOf<HTMLElement>;
     const cbtn = this.tHeadElement.querySelectorAll('.act_btn') as NodeListOf<HTMLElement>;
     const btn = this.tHeadElement.querySelector('#b' + e) as HTMLElement;
     const div = this.tHeadElement.querySelector('.edit_d' + e) as HTMLElement;
-
     mdiv.forEach(element => {
       element.style.cssText = "display: none  !important;";
     });
     cbtn.forEach(element => {
       element.style.cssText = "display: block  !important;";
     });
-    // mdiv.style.cssText = "display: none  !important;";
-    // cbtn.style.cssText = "display: block !important;";
     btn.style.cssText = "display:  none  !important;";
     div.style.cssText = "display:  block !important;";
   }
@@ -799,14 +751,11 @@ export class TableComponent {
     cbtn.forEach(element => {
       element.style.cssText = "display: block  !important;";
     });
-    // mdiv.style.cssText = "display: none !important;";
-    // cbtn.style.cssText = "display: block !important;";
     btn.style.cssText = "display: block !important;";
     div.style.cssText = "display: none !important;";
-
-
-
   }
+
+
   constructor(private elem: ElementRef) { }
 
 }

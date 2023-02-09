@@ -9,7 +9,6 @@ import { MslicePipe } from './pipes/mslice.pipe';
 import { WebapiService } from './services/webapi.service';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
-import { TransformPipe } from './pipes/transform.pipe';
 
 
 
@@ -21,7 +20,6 @@ import { TransformPipe } from './pipes/transform.pipe';
     MshortPipe,
     MfilterPipe,
     MslicePipe,
-    TransformPipe,
 
   ],
   imports: [
@@ -36,10 +34,8 @@ import { TransformPipe } from './pipes/transform.pipe';
     MshortPipe,
     MfilterPipe,
     MslicePipe,
-    TransformPipe,
   ],
   providers: [
-    TransformPipe,
     MshortPipe,
     MfilterPipe,
     MslicePipe,
