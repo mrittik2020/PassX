@@ -2,13 +2,12 @@
     <div class="sidebar">
         <div class="sidebar-manu">
             <ul>
-                <li *ngFor="let item of items; index as i;" [class.active]="status==i+1" (click)="status=i+1">
-                    <a [routerLink]=item.link>
+                <li *ngFor="let item of items" [routerLink]=item.link routerLinkActive="active">
+                    <a>
                         <fa-icon [icon]=item.icon></fa-icon>
                         <span>{{item.name}}</span>
                     </a>
                 </li>
-
             </ul>
         </div>
     </div>

@@ -9,7 +9,7 @@ import { faLock, faBars, faNoteSticky, faCreditCard, faBuildingColumns, faRightF
 })
 export class NevbarComponent {
 
-
+    
     
   status = 1;
 
@@ -50,7 +50,7 @@ export class NevbarComponent {
       name:"Bank Accounts"
     },
     { 
-      link:"/#logout",
+      link:"/logout",
       icon: this.logout,
       name:"LogOut"
     }
