@@ -1,4 +1,5 @@
-import { Component, ElementRef } from '@angular/core';
+import { DatashearService } from './../../services/datashear.service';
+import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faAnglesLeft, faAngleRight, faAngleLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +13,7 @@ import * as _ from 'lodash';
   styleUrls: ['./table.component.css']
 })
 
-export class TableComponent {
+export class TableComponent implements OnInit, OnDestroy {
   dd = faFacebook;
   AnglesRight = faAnglesRight;
   AnglesLeft = faAnglesLeft;
@@ -634,6 +635,10 @@ export class TableComponent {
   type: string = 'Num';
   order: boolean = true;
 
+  // Filter
+  protected filter: any;
+  ddf:any;
+
   lastpage() {
     this.item_per_page = Number(this.selected);
     let lpg = Math.trunc(this.rowNumber / this.item_per_page);
@@ -755,7 +760,18 @@ export class TableComponent {
     div.style.cssText = "display: none !important;";
   }
 
+  constructor(private elem: ElementRef, private dataShare: DatashearService) { };
 
-  constructor(private elem: ElementRef) { }
+  ngOnInit() {
+    this.ddf = this.dataShare.dataSS.subscribe((data) => {
+      this.filter = data;
+      console.log(this.filter);
+    });
+    ;
+  };
+
+  ngOnDestroy(): void {
+    this.ddf.unsubscribe();
+  }
 
 }

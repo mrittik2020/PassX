@@ -1,3 +1,4 @@
+import { DatashearService } from './services/datashear.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,6 +10,7 @@ import { MslicePipe } from './pipes/mslice.pipe';
 import { WebapiService } from './services/webapi.service';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -26,6 +28,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MaterialModule,
     RouterModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
@@ -39,7 +42,8 @@ import { RouterModule } from '@angular/router';
     MshortPipe,
     MfilterPipe,
     MslicePipe,
-    WebapiService
+    WebapiService,
+    DatashearService,
   ],
 })
 export class SharedModule { }

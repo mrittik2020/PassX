@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { DatashearService } from './../../services/datashear.service';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
 
-  
-  @Input() status:any;
+  protected filterValue: string = '';
 
-  items=[
+  @Input() status: any;
+
+  items = [
     {
       link: '/login',
       name: "Log In"
@@ -29,4 +31,12 @@ export class HeaderComponent {
     }
   ];
 
+  constructor(private dataShare: DatashearService) { };
+
+
+
+  onDataChange() {
+    this.dataShare.setSharedData(this.filterValue);
+    // console.log(this.filterValue);
+  }
 }
