@@ -4,7 +4,7 @@ import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faAnglesLeft, faAngleRight, faAngleLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 
 
 @Component({
@@ -636,7 +636,7 @@ export class TableComponent implements OnInit, OnDestroy {
   order: boolean = true;
 
   // Filter
-  protected filter: any;
+  filter: any;
   ddf:any;
 
   lastpage() {
@@ -763,7 +763,7 @@ export class TableComponent implements OnInit, OnDestroy {
   constructor(private elem: ElementRef, private dataShare: DatashearService) { };
 
   ngOnInit() {
-    this.ddf = this.dataShare.dataSS.subscribe((data) => {
+    this.ddf = this.dataShare.data$.subscribe((data) => {
       this.filter = data;
       console.log(this.filter);
     });

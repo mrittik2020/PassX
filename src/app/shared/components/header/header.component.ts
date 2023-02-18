@@ -1,12 +1,12 @@
 import { DatashearService } from './../../services/datashear.service';
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent{
 
   protected filterValue: string = '';
 
@@ -31,12 +31,14 @@ export class HeaderComponent {
     }
   ];
 
-  constructor(private dataShare: DatashearService) { };
-
-
-
   onDataChange() {
     this.dataShare.setSharedData(this.filterValue);
-    // console.log(this.filterValue);
   }
+
+  constructor(private dataShare: DatashearService) { 
+    this.dataShare.data$.subscribe ((data)=>{
+      this.filterValue=data;
+    });
+  };
+
 }

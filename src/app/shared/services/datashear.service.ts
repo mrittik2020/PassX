@@ -7,8 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class DatashearService {
 
 
-  sharedData = new BehaviorSubject<string>('');;
-  readonly dataSS = this.sharedData.asObservable();
+  private sharedData = new BehaviorSubject<string>('');;
+  public data$ = this.sharedData.asObservable();
 
   setSharedData(data: any) {
     this.sharedData.next(data);
