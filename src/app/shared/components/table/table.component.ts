@@ -765,7 +765,7 @@ export class TableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.ddf = this.dataShare.data$.subscribe((data) => {
       this.filter = data;
-      console.log(this.filter);
+      // console.log(this.filter);
     });
     ;
   };

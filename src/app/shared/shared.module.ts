@@ -11,6 +11,7 @@ import { WebapiService } from './services/webapi.service';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CardviewComponent } from './components/cardview/cardview.component';
 
 
 
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     MshortPipe,
     MfilterPipe,
     MslicePipe,
+    CardviewComponent,
 
   ],
   imports: [
@@ -37,6 +39,7 @@ import { FormsModule } from '@angular/forms';
     MshortPipe,
     MfilterPipe,
     MslicePipe,
+    CardviewComponent,
   ],
   providers: [
     MshortPipe,
