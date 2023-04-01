@@ -12,6 +12,8 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CardviewComponent } from './components/cardview/cardview.component';
+import { AtmcardComponent } from './components/atmcard/atmcard.component';
+import { MaskingPipe } from './pipes/masking.pipe';
 
 
 
@@ -24,6 +26,8 @@ import { CardviewComponent } from './components/cardview/cardview.component';
     MfilterPipe,
     MslicePipe,
     CardviewComponent,
+    AtmcardComponent,
+    MaskingPipe,
 
   ],
   imports: [
@@ -40,6 +44,7 @@ import { CardviewComponent } from './components/cardview/cardview.component';
     MfilterPipe,
     MslicePipe,
     CardviewComponent,
+    AtmcardComponent,
   ],
   providers: [
     MshortPipe,
@@ -47,6 +52,7 @@ import { CardviewComponent } from './components/cardview/cardview.component';
     MslicePipe,
     WebapiService,
     DatashearService,
+    MaskingPipe,
   ],
 })
 export class SharedModule { }

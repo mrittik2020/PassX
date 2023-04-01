@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="card-box">
+        <div class="card"  (click)="onEnter(i)" (mouseleave)="onLeave(i)" *ngFor="let item of dataGet; let i = index">
+            <div class="card__front card__part" [class]="'front'+i">
+                <p class="card_numer">{{item.cardNumber+''|masking}}</p>
+                <div class="card__space-75">
+                    <span class="card__label">Card holder</span>
+                    <p class="card__info"> {{item.name}}</p>
+                </div>
+                <div class="card__space-25">
+                    <span class="card__label">Expires</span>
+                    <p class="card__info"> {{item.exp_Date | date: 'MM/yy'}} </p>
+                </div>
+            </div>
+
+            <div class="card__back card__part" [class]="'back'+i">
+                <div class="card__black-line"></div>
+                <div class="card__back-content">
+                    <div class="card__secret">
+                        <p class="card__secret--last"> {{item.cvv}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

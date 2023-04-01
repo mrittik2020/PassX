@@ -39,13 +39,7 @@ export class CardviewComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.name=this.dataChild[0]['name'];
-    // this.username=this.dataChild[0]['username'];
-    // this.para=this.dataChild[0]['para'];
-    // this.color=this.dataChild[0]['color'];
-    // this.cssM = this.colorsbord[this.color];
-
-    console.log(this.dataChild)
+    // console.log(this.dataChild)
     // console.log(this.name,this.username,this.para,this.color);
   }
 
