@@ -25,7 +25,30 @@ export class NotesComponent implements OnInit {
     "username": "lsutherington2",
     "para": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
     "color": "yellow",
+  }, 
+  {
+    "name": "Mommy Macklam",
+    "username": "mmacklam0",
+    "para": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+    "color": "red"
   }, {
+    "name": "Barthel Anear",
+    "username": "banear1",
+    "para": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+    "color": "green",
+  },
+  {
+    "name": "Randa Creelman",
+    "username": "rcreelman3",
+    "para": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+    "color": "violet",
+  }, {
+    "name": "Rhoda McWaters",
+    "username": "rmcwaters4",
+    "para": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
+    "color": "orange"
+  },
+  {
     "name": "Randa Creelman",
     "username": "rcreelman3",
     "para": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",

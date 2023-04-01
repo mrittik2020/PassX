@@ -4,28 +4,26 @@
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: calc(100vh - 85px);
     overflow-y: scroll;
-    padding: 10px 0 0 2rem;
+    padding: 1rem 0 0 2rem;
 }
 
 .main {
-    height: calc(100vh - 85px);
-    width: calc(100vw - 320px);
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 .cardsx {
+    width: 320px;
+    height: 220px;
     margin: 0 1rem 1.5rem 0;
 }
 
 .example-card {
-    width: 320px;
-    height: 220px;
+    height: 100%;
 }
 
 mat-card {

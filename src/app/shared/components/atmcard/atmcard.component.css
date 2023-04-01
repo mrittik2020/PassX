@@ -5,14 +5,23 @@
     font-family: 'Space Mono', monospace;
 }
 
+.main{
+    height: calc(100vh - 85px);
+    /* width: calc(100vw - 320px); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2rem;
+}
+
 
 .card-box{
-    height: calc(100vh - 85px);
-    width: calc(100vw - 320px);
+    /* width: 98%; */
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding-left: 1rem;
+    overflow-y: scroll;
 }
 
 .card {
@@ -24,6 +33,8 @@
     cursor: pointer;
     margin: 1rem 1rem 1.5rem 0rem;
 }
+
+
 
 .card__part {
     box-shadow: 1px 1px #aaa3a3;
