@@ -1,97 +1,98 @@
 <div class="main">
     <div class="container">
-        <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
-                <thead>
-                    <tr>
+        <div class="table">
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <ng-container>
+                                <th (mouseenter)="mousein('icon-1')" (mouseleave)="mouseout('icon-1')"
+                                    (click)="onClick('icon-1');fild='id';type='Num';">
+                                    <div class="sort">
+                                        <span>SL No</span>
+                                        <mat-icon id="icon-1" area-sort="none">arrow_upward</mat-icon>
+                                    </div>
+                                </th>
 
-                        <ng-container>
-                            <th (mouseenter)="mousein('icon-1')" (mouseleave)="mouseout('icon-1')"
-                                (click)="onClick('icon-1');fild='id';type='Num';">
-                                <div class="sort">
-                                    <span>SL No</span>
-                                    <mat-icon id="icon-1" area-sort="none">arrow_upward</mat-icon>
+                                <th (mouseenter)="mousein('icon-2')" (mouseleave)="mouseout('icon-2')">
+                                    <div class="sort">
+                                        <span>Website</span>
+                                        <!-- <mat-icon id="icon-2" area-sort="none">arrow_upward</mat-icon> -->
+                                    </div>
+                                </th>
+
+                                <th (mouseenter)="mousein('icon-3')" (mouseleave)="mouseout('icon-3')"
+                                    (click)="onClick('icon-3');fild='name';type='Str';">
+                                    <div class="sort">
+                                        <span>Name</span>
+                                        <mat-icon id="icon-3" area-sort="none">arrow_upward</mat-icon>
+                                    </div>
+                                </th>
+
+                                <th (mouseenter)="mousein('icon-4')" (mouseleave)="mouseout('icon-4')"
+                                    (click)="onClick('icon-4');fild='username';type='Str';">
+                                    <div class="sort">
+                                        <span>User Name</span>
+                                        <mat-icon id="icon-4" area-sort="none">arrow_upward</mat-icon>
+                                    </div>
+                                </th>
+
+                                <th (mouseenter)="mousein('icon-5')" (mouseleave)="mouseout('icon-5')"
+                                    (click)="onClick('icon-5');fild='dob';type='Date';">
+                                    <div class="sort">
+                                        <span>DOB</span>
+                                        <mat-icon id="icon-5" area-sort="none">arrow_upward</mat-icon>
+                                    </div>
+                                </th>
+
+                                <th (mouseenter)="mousein('icon-6')" (mouseleave)="mouseout('icon-6')"
+                                    (click)="onClick('icon-6');fild='last_seen';type='Date';">
+                                    <div class="sort">
+                                        <span>Last Seen</span>
+                                        <mat-icon id="icon-6" area-sort="none">arrow_upward</mat-icon>
+                                    </div>
+                                </th>
+
+                                <th>
+                                    <div class="sort">
+                                        <span>Action</span>
+                                    </div>
+                                </th>
+                            </ng-container>
+
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr
+                            *ngFor="let user of dataSheet|mslice:currentPage:item_per_page|mshort:fild:type:order|mfilter:filter; ">
+                            <td>{{user.id}}</td>
+                            <td>
+                                <fa-icon [icon]=dd size="3x"></fa-icon>
+                            </td>
+                            <td> {{user.name}}</td>
+                            <td> {{user.username}}</td>
+                            <td> {{user.dob}}</td>
+                            <td> {{user.last_seen}}</td>
+                            <td id="action-btn">
+                                <button class="act_btn" [id]="'b'+user.id" mat-raised-button (click)="edit(user.id)"
+                                    color="primary">Edit</button>
+                                <div class="edit_d{{user.id}} editbtn">
+                                    <button mat-raised-button color="primary">Save</button>
+                                    <button mat-raised-button (click)="cancel(user.id)" color="warn">Cancel</button>
                                 </div>
-                            </th>
-
-                            <th (mouseenter)="mousein('icon-2')" (mouseleave)="mouseout('icon-2')">
-                                <div class="sort">
-                                    <span>Website</span>
-                                    <!-- <mat-icon id="icon-2" area-sort="none">arrow_upward</mat-icon> -->
-                                </div>
-                            </th>
-
-                            <th (mouseenter)="mousein('icon-3')" (mouseleave)="mouseout('icon-3')"
-                                (click)="onClick('icon-3');fild='name';type='Str';">
-                                <div class="sort">
-                                    <span>Name</span>
-                                    <mat-icon id="icon-3" area-sort="none">arrow_upward</mat-icon>
-                                </div>
-                            </th>
-
-                            <th (mouseenter)="mousein('icon-4')" (mouseleave)="mouseout('icon-4')"
-                                (click)="onClick('icon-4');fild='username';type='Str';">
-                                <div class="sort">
-                                    <span>User Name</span>
-                                    <mat-icon id="icon-4" area-sort="none">arrow_upward</mat-icon>
-                                </div>
-                            </th>
-
-                            <th (mouseenter)="mousein('icon-5')" (mouseleave)="mouseout('icon-5')"
-                                (click)="onClick('icon-5');fild='dob';type='Date';">
-                                <div class="sort">
-                                    <span>DOB</span>
-                                    <mat-icon id="icon-5" area-sort="none">arrow_upward</mat-icon>
-                                </div>
-                            </th>
-
-                            <th (mouseenter)="mousein('icon-6')" (mouseleave)="mouseout('icon-6')"
-                                (click)="onClick('icon-6');fild='last_seen';type='Date';">
-                                <div class="sort">
-                                    <span>Last Seen</span>
-                                    <mat-icon id="icon-6" area-sort="none">arrow_upward</mat-icon>
-                                </div>
-                            </th>
-
-                            <th>
-                                <div class="sort">
-                                    <span>Action</span>
-                                </div>
-                            </th>
-                        </ng-container>
-
-                    </tr>
-                </thead>
-            </table>
-        </div>
-
-        <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr *ngFor="let user of dataSheet|mslice:currentPage:item_per_page|mshort:fild:type:order|mfilter:filter; ">
-                        <td>{{user.id}}</td>
-                        <td>
-                            <fa-icon [icon]=dd size="3x"></fa-icon>
-                        </td>
-                        <td> {{user.name}}</td>
-                        <td> {{user.username}}</td>
-                        <td> {{user.dob}}</td>
-                        <td> {{user.last_seen}}</td>
-                        <td id="action-btn">
-                            <button class="act_btn" [id]="'b'+user.id" mat-raised-button (click)="edit(user.id)"
-                                color="primary">Edit</button>
-                            <div class="edit_d{{user.id}} editbtn">
-                                <button mat-raised-button color="primary">Save</button>
-                                <button mat-raised-button (click)="cancel(user.id)" color="warn">Cancel</button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="page-nav">
-
             <div class="select">
                 <p>Item per page</p>
                 <mat-form-field appearance="fill">

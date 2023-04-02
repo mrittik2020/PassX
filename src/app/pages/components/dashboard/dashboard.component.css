@@ -5,6 +5,7 @@
     row-gap: 40px;
     justify-content:space-evenly;
     flex-wrap: wrap;
+    margin: 1rem 0;
 }
 
 .cards{
