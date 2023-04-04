@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { CardviewComponent } from './components/cardview/cardview.component';
 import { AtmcardComponent } from './components/atmcard/atmcard.component';
 import { MaskingPipe } from './pipes/masking.pipe';
+import { BankcardComponent } from './components/bankcard/bankcard.component';
 
 
 
@@ -28,6 +29,7 @@ import { MaskingPipe } from './pipes/masking.pipe';
     CardviewComponent,
     AtmcardComponent,
     MaskingPipe,
+    BankcardComponent,
 
   ],
   imports: [
@@ -45,6 +47,7 @@ import { MaskingPipe } from './pipes/masking.pipe';
     MslicePipe,
     CardviewComponent,
     AtmcardComponent,
+    BankcardComponent,
   ],
   providers: [
     MshortPipe,

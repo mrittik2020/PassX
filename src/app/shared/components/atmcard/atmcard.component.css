@@ -5,6 +5,11 @@
     font-family: 'Space Mono', monospace;
 }
 
+mat-icon{
+    font-family: 'Material Icons';
+    color:yellow;
+}
+
 .main{
     height: calc(100vh - 85px);
     /* width: calc(100vw - 320px); */
@@ -163,7 +168,7 @@
     top: -3px;
     left: -3px;
     height: calc(100% + 6px);
-    width: calc(100% - 42px);
+    width: calc(100% - 80px);
     border-radius: 4px;
     background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
 }

@@ -46,6 +46,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import {MatIconRegistry} from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -77,6 +78,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatBadgeModule,
     MatChipsModule,
     MatIconModule,
+    // MatIconRegistry,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatRippleModule,
@@ -117,6 +119,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatBadgeModule,
     MatChipsModule,
     MatIconModule,
+    // MatIconRegistry,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatRippleModule,
