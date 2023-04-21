@@ -7,7 +7,10 @@
 
 mat-icon{
     font-family: 'Material Icons';
-    color:yellow;
+    color:rgb(142, 16, 16);
+}
+mat-icon:hover{
+    color: #e0c031;
 }
 
 .main{
@@ -105,6 +108,9 @@ mat-icon{
     border-radius: 5px;
     height: 30px;
 }
+.copy{
+    margin: 0px;
+}
 
 .card_numer {
     display: block;
@@ -115,7 +121,6 @@ mat-icon{
     color: #fff;
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 20px;
 }
 
 .card__space-75 {
@@ -171,6 +176,19 @@ mat-icon{
     width: calc(100% - 80px);
     border-radius: 4px;
     background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+.action{
+    width: 280px;
+
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    justify-content: center;
+    column-gap: 20px;
+
 }
 
 

@@ -89,7 +89,6 @@ import {MatIconRegistry} from '@angular/material/icon';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-
     FontAwesomeModule,
   ],
 
