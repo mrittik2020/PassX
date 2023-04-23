@@ -88,8 +88,18 @@ mat-icon:hover{
     -moz-transform: rotateY(-180deg);
 }
 
+.swap{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.matm{
+    opacity: 0;
+}
+
 .card__black-line {
-    margin-top: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
     height: 38px;
     background-color: #303030;
 }

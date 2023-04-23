@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     RouterModule,
     FontAwesomeModule,
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

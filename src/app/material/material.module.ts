@@ -47,12 +47,13 @@ import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {MatIconRegistry} from '@angular/material/icon';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -90,6 +91,10 @@ import {MatIconRegistry} from '@angular/material/icon';
     MatSortModule,
     MatTableModule,
     FontAwesomeModule,
+    ClipboardModule,
+
+
+   
   ],
 
   exports: [
@@ -130,6 +135,7 @@ import {MatIconRegistry} from '@angular/material/icon';
     MatSortModule,
     MatTableModule,
     FontAwesomeModule,
+    ClipboardModule,
   ]
 })
 export class MaterialModule { }
