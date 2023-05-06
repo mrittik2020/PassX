@@ -16,6 +16,7 @@ mat-icon:hover{
 .main{
     height: calc(100vh - 85px);
     /* width: calc(100vw - 320px); */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,8 +25,8 @@ mat-icon:hover{
 
 
 .card-box{
-    /* width: 98%; */
     height: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;

@@ -1,16 +1,17 @@
-import { Component, ElementRef, Input } from '@angular/core';
-import { Clipboard } from '@angular/cdk/clipboard';
+import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { DatashearService } from '../../services/datashear.service';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-atmcard',
   templateUrl: './atmcard.component.html',
   styleUrls: ['./atmcard.component.css']
 })
-export class AtmcardComponent {
+export class AtmcardComponent implements OnInit, OnDestroy {
   @Input() dataGet: DataType[] = [];
 
-  cardNumber: string = "1234567890124569";
-
+  filter:string = '';
+  ddf:any;
   element = (<HTMLElement>this.elem.nativeElement);
 
 
@@ -45,7 +46,17 @@ export class AtmcardComponent {
     })
   }
 
-  constructor(private elem: ElementRef , ) { }
+  constructor(private elem: ElementRef , private dataShare: DatashearService ) { }
+
+  ngOnInit(): void {
+    this.ddf = this.dataShare.data$.subscribe((data) => {
+      this.filter = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.ddf.unsubscribe();
+  }
 
 }
 
@@ -56,3 +67,4 @@ interface DataType {
   exp_Date: string;
   cvv: number;
 }
+

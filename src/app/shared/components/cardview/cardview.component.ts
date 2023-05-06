@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { DatashearService } from '../../services/datashear.service';
 
 @Component({
   selector: 'app-cardview',
@@ -6,17 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./cardview.component.css']
 })
 
-export class CardviewComponent implements OnInit {
+export class CardviewComponent implements OnInit, OnDestroy {
 
 
-  @Input() dataChild:DataArray[]=[];
+  @Input() dataChild: DataArray[] = [];
 
-  // protected cssM = "";
-
-  // protected name=''
-  // protected username=''
-  // protected para=''
-  // protected color=''
+  filter: string = '';
+  subs:any;
 
   colorsbord: ColorInt = {
     red: "--primary-card:#fd0000;     --background-card:#ff00008a;",
@@ -32,15 +29,22 @@ export class CardviewComponent implements OnInit {
     // this.setRandomColor(this.colors,this.lastcolor);
   }
 
-  applyColor(color:string) { 
+  applyColor(color: string) {
     return this.colorsbord[color];
   }
 
+  constructor(private dataShare: DatashearService) { };
 
 
   ngOnInit(): void {
-    // console.log(this.dataChild)
-    // console.log(this.name,this.username,this.para,this.color);
+    this.subs = this.dataShare.data$.subscribe((data)=>{
+      this.filter = data;
+      console.log(this.filter);
+    })
+  }
+
+  ngOnDestroy(){
+    this.subs.unsubscribe();
   }
 
 }
@@ -52,9 +56,8 @@ interface ColorInt {
 }
 
 interface DataArray {
-    name: string,
-    username: string,
-    para: string,
-    color: string
-  
+  name: string,
+  username: string,
+  para: string,
+  color: string
 }

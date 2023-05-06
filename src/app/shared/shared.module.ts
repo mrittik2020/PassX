@@ -5,7 +5,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { NevbarComponent } from './components/nevbar/nevbar.component';
 import { TableComponent } from './components/table/table.component';
 import { MshortPipe } from './pipes/mshort.pipe';
-import { MfilterPipe } from './pipes/mfilter.pipe';
 import { MslicePipe } from './pipes/mslice.pipe';
 import { WebapiService } from './services/webapi.service';
 import { MaterialModule } from '../material/material.module';
@@ -15,6 +14,10 @@ import { CardviewComponent } from './components/cardview/cardview.component';
 import { AtmcardComponent } from './components/atmcard/atmcard.component';
 import { MaskingPipe } from './pipes/masking.pipe';
 import { BankcardComponent } from './components/bankcard/bankcard.component';
+import { CardpipePipe } from './pipes/cardpipe.pipe';
+import { NotepipePipe } from './pipes/notepipe.pipe';
+import { PasspipePipe } from './pipes/passpipe.pipe';
+import { BankpipePipe } from './pipes/bankpipe.pipe';
 
 
 
@@ -24,12 +27,15 @@ import { BankcardComponent } from './components/bankcard/bankcard.component';
     NevbarComponent,
     TableComponent,
     MshortPipe,
-    MfilterPipe,
     MslicePipe,
     CardviewComponent,
     AtmcardComponent,
     MaskingPipe,
     BankcardComponent,
+    CardpipePipe,
+    NotepipePipe,
+    PasspipePipe,
+    BankpipePipe,
 
   ],
   imports: [
@@ -42,20 +48,20 @@ import { BankcardComponent } from './components/bankcard/bankcard.component';
     HeaderComponent,
     NevbarComponent,
     TableComponent,
-    MshortPipe,
-    MfilterPipe,
-    MslicePipe,
     CardviewComponent,
     AtmcardComponent,
     BankcardComponent,
   ],
   providers: [
     MshortPipe,
-    MfilterPipe,
     MslicePipe,
     WebapiService,
     DatashearService,
     MaskingPipe,
+    CardpipePipe,
+    NotepipePipe,
+    PasspipePipe,
+    BankpipePipe,
   ],
 })
 export class SharedModule { }

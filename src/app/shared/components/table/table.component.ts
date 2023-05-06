@@ -630,6 +630,7 @@ export class TableComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   item_per_page: number = Number(this.selected);
   lastPage = this.lastpage();
+  
   // Default Sorting...
   fild: string = 'id';
   type: string = 'Num';
@@ -651,14 +652,6 @@ export class TableComponent implements OnInit, OnDestroy {
     this.lastPage = lpg;
     return lpg
   }
-
-  // test(){
-  //   console.log("Testing==>",this.fild);
-  //   console.log("Testing==>",this.type);
-  //   console.log("Testing==>",this.order);
-  // }
-
-
 
   tHeadElement = (<HTMLElement>this.elem.nativeElement);
 
@@ -765,9 +758,7 @@ export class TableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.ddf = this.dataShare.data$.subscribe((data) => {
       this.filter = data;
-      // console.log(this.filter);
     });
-    ;
   };
 
   ngOnDestroy(): void {

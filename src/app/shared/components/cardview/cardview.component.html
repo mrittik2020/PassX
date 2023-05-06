@@ -1,6 +1,6 @@
 <div class="container">
     <div class="main">
-        <div class="cardsx" *ngFor="let item of dataChild">
+        <div class="cardsx" *ngFor="let item of dataChild|notepipe:filter">
             <mat-card [style]="applyColor(item.color)" class="example-card">
                 <mat-card-header>
                     <mat-card-title> {{item.name}} </mat-card-title>
