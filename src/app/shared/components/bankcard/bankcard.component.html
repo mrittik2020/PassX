@@ -1,6 +1,6 @@
 <div class="container">
     <div class="main">
-        <div class="cardsx">
+        <div class="cardsx" *ngFor="let item of dataChild|bankpipe:filter">
             <mat-card class="example-card">
                 <mat-card-header>
                     <mat-icon fontIcon="account_balance"></mat-icon>
@@ -10,14 +10,14 @@
                         <div class="name">
                             <p>
                                 <span>NAME:</span>
-                                <span>Rolla Marquee</span>
+                                <span>{{item.name}}</span>
                             </p>
                         </div>
                         <div class="acc_name">
                             <p>
                                 <span>Account Number:</span>
                             </p>
-                            <p>XXXX-XXXX-XX87-4563</p>
+                            <p>{{item.acc_number|masking}}</p>
                         </div>
                     </div>
                 </mat-card-content>

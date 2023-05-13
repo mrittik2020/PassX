@@ -15,6 +15,7 @@ export class CardviewComponent implements OnInit, OnDestroy {
   filter: string = '';
   subs:any;
 
+
   colorsbord: ColorInt = {
     red: "--primary-card:#fd0000;     --background-card:#ff00008a;",
     yellow: "--primary-card:#b4b400;     --background-card:#ffff009c;",

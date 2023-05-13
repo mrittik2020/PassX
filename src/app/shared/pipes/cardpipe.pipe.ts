@@ -1,12 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-interface DataItem {
-  id: number;
-  cardNumber: number;
-  name: string;
-  exp_Date: string;
-  cvv: number;
-}
+
 
 @Pipe({
   name: 'cardpipe'
@@ -35,7 +29,6 @@ export class CardpipePipe implements PipeTransform {
 
     return filteredItems;
   }
-
 }
 
 
@@ -48,4 +41,12 @@ function getMatchCount(item: DataItem, searchTerm: string): number {
     matchCount += 2;
   }
   return matchCount;
+}
+
+interface DataItem {
+  id: number;
+  cardNumber: number;
+  name: string;
+  exp_Date: string;
+  cvv: number;
 }

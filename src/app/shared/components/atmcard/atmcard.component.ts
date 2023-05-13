@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { DatashearService } from '../../services/datashear.service';
-import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-atmcard',
