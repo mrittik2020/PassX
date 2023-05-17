@@ -40,7 +40,7 @@ export class CardviewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subs = this.dataShare.data$.subscribe((data)=>{
       this.filter = data;
-      console.log(this.filter);
+      // console.log(this.filter);
     })
   }
 
