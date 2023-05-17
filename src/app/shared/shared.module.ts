@@ -18,6 +18,10 @@ import { CardpipePipe } from './pipes/cardpipe.pipe';
 import { NotepipePipe } from './pipes/notepipe.pipe';
 import { PasspipePipe } from './pipes/passpipe.pipe';
 import { BankpipePipe } from './pipes/bankpipe.pipe';
+import { AtminfoComponent } from './components/atminfo/atminfo.component';
+import { BankinfoComponent } from './components/bankinfo/bankinfo.component';
+import { PassinfoComponent } from './components/passinfo/passinfo.component';
+import { NoteinfoComponent } from './components/noteinfo/noteinfo.component';
 
 
 
@@ -36,6 +40,10 @@ import { BankpipePipe } from './pipes/bankpipe.pipe';
     NotepipePipe,
     PasspipePipe,
     BankpipePipe,
+    AtminfoComponent,
+    BankinfoComponent,
+    PassinfoComponent,
+    NoteinfoComponent,
 
   ],
   imports: [
@@ -51,6 +59,10 @@ import { BankpipePipe } from './pipes/bankpipe.pipe';
     CardviewComponent,
     AtmcardComponent,
     BankcardComponent,
+    AtminfoComponent,
+    BankinfoComponent,
+    PassinfoComponent,
+    NoteinfoComponent,
   ],
   providers: [
     MshortPipe,
