@@ -9,7 +9,7 @@ import { MslicePipe } from './pipes/mslice.pipe';
 import { WebapiService } from './services/webapi.service';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardviewComponent } from './components/cardview/cardview.component';
 import { AtmcardComponent } from './components/atmcard/atmcard.component';
 import { MaskingPipe } from './pipes/masking.pipe';
@@ -50,7 +50,9 @@ import { NoteinfoComponent } from './components/noteinfo/noteinfo.component';
     CommonModule,
     MaterialModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   exports: [
     HeaderComponent,

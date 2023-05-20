@@ -1,8 +1,10 @@
 import { DatashearService } from './../../services/datashear.service';
 import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faAnglesLeft, faAngleRight, faAngleLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { PassinfoComponent } from '../passinfo/passinfo.component';
 
 // import * as _ from 'lodash';
 
@@ -630,7 +632,7 @@ export class TableComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   item_per_page: number = Number(this.selected);
   lastPage = this.lastpage();
-  
+
   // Default Sorting...
   fild: string = 'id';
   type: string = 'Num';
@@ -638,7 +640,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
   // Filter
   filter: any;
-  ddf:any;
+  ddf: any;
 
   lastpage() {
     this.item_per_page = Number(this.selected);
@@ -753,13 +755,25 @@ export class TableComponent implements OnInit, OnDestroy {
     div.style.cssText = "display: none !important;";
   }
 
-  constructor(private elem: ElementRef, private dataShare: DatashearService) { };
+
+
+
+
+  constructor(private elem: ElementRef, private dataShare: DatashearService, private dialog: MatDialog) { }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PassinfoComponent, {
+      width: '50%',
+      // data: { message: 'This is a Material Dialog!' }
+    });
+  }
 
   ngOnInit() {
     this.ddf = this.dataShare.data$.subscribe((data) => {
       this.filter = data;
     });
-  };
+  }
 
   ngOnDestroy(): void {
     this.ddf.unsubscribe();

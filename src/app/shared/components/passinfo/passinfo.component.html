@@ -1,1 +1,50 @@
-<p>passinfo works!</p>
+<div class="main">
+    <div mat-dialog-title class="header">
+        <h2>Add Password</h2>
+        <button [mat-dialog-close]="true"  mat-mini-fab color="primary" aria-label="dialog close button">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="form" [formGroup]="form">
+            <mat-form-field appearance="outline">
+                <mat-label for="url">URL</mat-label>
+                <input matInput formControlName="url">
+                <mat-error *ngIf=" isUrlInvalid() && !form.get('url')?.errors?.['required'] ">Invalid URL</mat-error>
+                <mat-error *ngIf="form.get('url')?.errors?.['required']">This field is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="name">Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="username">Username</mat-label>
+                <input matInput formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="loginid">Login ID</mat-label>
+                <input matInput formControlName="loginid">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="password">Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="notes">Notes</mat-label>
+                <textarea matInput formControlName="notes"></textarea>
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="warn"  (click)="onClear()">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
+    </mat-dialog-actions>
+
+</div>
