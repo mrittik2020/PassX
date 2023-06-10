@@ -22,6 +22,11 @@ import { AtminfoComponent } from './components/atminfo/atminfo.component';
 import { BankinfoComponent } from './components/bankinfo/bankinfo.component';
 import { PassinfoComponent } from './components/passinfo/passinfo.component';
 import { NoteinfoComponent } from './components/noteinfo/noteinfo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
@@ -52,6 +57,11 @@ import { NoteinfoComponent } from './components/noteinfo/noteinfo.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
+    
 
   ],
   exports: [

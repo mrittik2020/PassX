@@ -1,1 +1,59 @@
-<p>atminfo works!</p>
+<div class="main">
+    <div mat-dialog-title class="header">
+        <h2>Add Note</h2>
+        <button [mat-dialog-close]="true" mat-mini-fab color="primary" aria-label="dialog close button">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="form" [formGroup]="form">
+
+            <mat-form-field appearance="outline">
+                <mat-label for="cardno">Card Number</mat-label>
+                <input type="number" matInput formControlName="cardno">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="name">Name</mat-label>
+                <input matInput name="name" formControlName="name">
+            </mat-form-field>
+
+            <mat-label>Exp Date</mat-label>
+            <div class="exp_date">
+                <mat-form-field appearance="outline" >
+                    <mat-label for="exp_month">Month</mat-label>
+                    <mat-select formControlName="exp_month" name="exp_month">
+                        <mat-option *ngFor="let month of months" [value]="month">
+                            {{month}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" >
+                    <mat-label for="year">Year</mat-label>
+                    <mat-select formControlName="exp_year" name="year">
+                        <mat-option *ngFor="let year of years" [value]="year">
+                            {{year}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="cvv">CVV</mat-label>
+                <input matInput type="number" formControlName="cvv">
+                <mat-error *ngIf="form.get('cvv')?.errors?.['required'] || form.get('cvv')?.dirty">
+                    Please enter a valid 3-digit CVV.
+                </mat-error>
+            </mat-form-field>
+
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" [disabled]="!form.valid"
+            (click)="onSubmit()">Submit</button>
+    </mat-dialog-actions>
+</div>

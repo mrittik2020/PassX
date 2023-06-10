@@ -1,7 +1,7 @@
-import { filter } from 'rxjs/operators';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Observable, map, of } from 'rxjs';
 import { DatashearService } from '../../services/datashear.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BankinfoComponent } from '../bankinfo/bankinfo.component';
 
 @Component({
   selector: 'app-bankcard',
@@ -36,8 +36,14 @@ export class BankcardComponent implements OnInit, OnDestroy {
       this.ddf.unsubscribe();
   }
 
-  constructor( private dataShare: DatashearService ) { }
+  constructor( private dataShare: DatashearService, private dialog: MatDialog) { }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BankinfoComponent, {
+      width: '50%',
+      // data: { message: 'This is a Material Dialog!' }
+    });
+  }
 
 }
 

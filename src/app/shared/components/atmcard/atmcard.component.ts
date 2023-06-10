@@ -1,5 +1,7 @@
+import { AtminfoComponent } from './../atminfo/atminfo.component';
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { DatashearService } from '../../services/datashear.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-atmcard',
@@ -9,8 +11,8 @@ import { DatashearService } from '../../services/datashear.service';
 export class AtmcardComponent implements OnInit, OnDestroy {
   @Input() dataGet: DataType[] = [];
 
-  filter:string = '';
-  ddf:any;
+  filter: string = '';
+  ddf: any;
   element = (<HTMLElement>this.elem.nativeElement);
 
 
@@ -45,7 +47,16 @@ export class AtmcardComponent implements OnInit, OnDestroy {
     })
   }
 
-  constructor(private elem: ElementRef , private dataShare: DatashearService ) { }
+  constructor(private elem: ElementRef, private dataShare: DatashearService, private dialog: MatDialog) { }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AtminfoComponent, {
+      width: '50%',
+      // data: { message: 'This is a Material Dialog!' }
+    });
+  }
+
 
   ngOnInit(): void {
     this.ddf = this.dataShare.data$.subscribe((data) => {

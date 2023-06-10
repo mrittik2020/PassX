@@ -1,1 +1,65 @@
-<p>bankinfo works!</p>
+<div class="main">
+    <div mat-dialog-title class="header">
+        <h2>Add Password</h2>
+        <button [mat-dialog-close]="true" mat-mini-fab color="primary" aria-label="dialog close button">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="form" [formGroup]="form">
+
+            <mat-form-field appearance="outline">
+                <mat-label for="b_name">Bank Name</mat-label>
+                <input matInput formControlName="b_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="acc_type">Account Type</mat-label>
+                <mat-select formControlName="acc_type"  id="acc_type">
+                    <mat-option *ngFor="let acc of acc_type" [value]="acc">
+                        {{acc}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="name">Holder Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="acc_num">Account Number</mat-label>
+                <input matInput type="number" formControlName="acc_num">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="ifsc">IFSC Code</mat-label>
+                <input matInput formControlName="ifsc">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="rmn">Registered Mobile Number</mat-label>
+                <input type="number" matInput formControlName="rmn">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="mirc">MIRC Code</mat-label>
+                <input matInput formControlName="mirc">
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label for="notes">Notes</mat-label>
+                <textarea matInput formControlName="notes"></textarea>
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" [disabled]="!form.valid"
+            (click)="onSubmit()">Submit</button>
+    </mat-dialog-actions>
+
+</div>

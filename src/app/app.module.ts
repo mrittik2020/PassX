@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     RouterModule,
     FontAwesomeModule,
     ClipboardModule,
+    MatDatepickerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

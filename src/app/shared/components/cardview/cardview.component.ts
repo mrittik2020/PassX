@@ -1,5 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DatashearService } from '../../services/datashear.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NoteinfoComponent } from '../noteinfo/noteinfo.component';
 
 @Component({
   selector: 'app-cardview',
@@ -34,8 +36,14 @@ export class CardviewComponent implements OnInit, OnDestroy {
     return this.colorsbord[color];
   }
 
-  constructor(private dataShare: DatashearService) { };
+  constructor(private dataShare: DatashearService, private dialog: MatDialog) { };
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NoteinfoComponent, {
+      width: '50%',
+      // data: { message: 'This is a Material Dialog!' }
+    });
+  }
 
   ngOnInit(): void {
     this.subs = this.dataShare.data$.subscribe((data)=>{

@@ -1,1 +1,35 @@
-<p>noteinfo works!</p>
+<div class="main">
+    <div mat-dialog-title class="header">
+        <h2>Add Note</h2>
+        <button [mat-dialog-close]="true"  mat-mini-fab color="primary" aria-label="dialog close button">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="form" [formGroup]="form">
+
+            <mat-form-field appearance="outline">
+                <mat-label for="title">Title</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="tag">Sub Title</mat-label>
+                <input matInput formControlName="tag">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label for="notes">Note</mat-label>
+                <textarea matInput formControlName="notes"></textarea>
+            </mat-form-field>
+
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="warn"  (click)="onClear()">Clear</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
+    </mat-dialog-actions>
+
+</div>
