@@ -19,7 +19,7 @@ export class AtmcardComponent implements OnInit, OnDestroy {
   onEnter(num: number) {
     const actfont = this.element.querySelector('.front' + num) as HTMLElement;
     const actback = this.element.querySelector('.back' + num) as HTMLElement;
-    // const mat=
+    
 
     actfont.classList.toggle('active');
     actback.classList.toggle('active');
@@ -47,15 +47,23 @@ export class AtmcardComponent implements OnInit, OnDestroy {
     })
   }
 
-  constructor(private elem: ElementRef, private dataShare: DatashearService, private dialog: MatDialog) { }
-
-
-  openDialog(): void {
+  
+  openFromDialog(): void {
     const dialogRef = this.dialog.open(AtminfoComponent, {
       width: '50%',
-      // data: { message: 'This is a Material Dialog!' }
+      data: { type: 'Form' }
     });
   }
+
+  openViewDialog(cardNo:number,name:string,expDate:string,cvv:number): void {
+    const dialogRef = this.dialog.open(AtminfoComponent, {
+      width: '45%',
+      data: { type: 'View', cno:cardNo, cname:name, exp: expDate, cvv: cvv}
+    });
+  }
+
+  constructor(private elem: ElementRef, private dataShare: DatashearService, private dialog: MatDialog) { }
+
 
 
   ngOnInit(): void {

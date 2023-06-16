@@ -15,7 +15,7 @@ export class CardviewComponent implements OnInit, OnDestroy {
   @Input() dataChild: DataArray[] = [];
 
   filter: string = '';
-  subs:any;
+  subs: any;
 
 
   colorsbord: ColorInt = {
@@ -36,23 +36,32 @@ export class CardviewComponent implements OnInit, OnDestroy {
     return this.colorsbord[color];
   }
 
-  constructor(private dataShare: DatashearService, private dialog: MatDialog) { };
-
   openDialog(): void {
     const dialogRef = this.dialog.open(NoteinfoComponent, {
       width: '50%',
-      // data: { message: 'This is a Material Dialog!' }
+      data: { type: 'Form' }
     });
   }
 
+  openViewDialog(title: string, subt: string, note: string): void {
+    const dialogRef = this.dialog.open(NoteinfoComponent, {
+      width: '45%',
+      data: { type: 'View', tit: title, tag: subt, note: note }
+    });
+  }
+
+  constructor(private dataShare: DatashearService, private dialog: MatDialog) { };
+
+
+
   ngOnInit(): void {
-    this.subs = this.dataShare.data$.subscribe((data)=>{
+    this.subs = this.dataShare.data$.subscribe((data) => {
       this.filter = data;
       // console.log(this.filter);
     })
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subs.unsubscribe();
   }
 

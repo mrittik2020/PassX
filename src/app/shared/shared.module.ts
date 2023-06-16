@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardviewComponent } from './components/cardview/cardview.component';
 import { AtmcardComponent } from './components/atmcard/atmcard.component';
-import { MaskingPipe } from './pipes/masking.pipe';
+import { CardNoMaskPipe, MaskingPipe, PassMaskPipe } from './pipes/masking.pipe';
 import { BankcardComponent } from './components/bankcard/bankcard.component';
 import { CardpipePipe } from './pipes/cardpipe.pipe';
 import { NotepipePipe } from './pipes/notepipe.pipe';
@@ -45,6 +45,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NotepipePipe,
     PasspipePipe,
     BankpipePipe,
+    PassMaskPipe,
+    CardNoMaskPipe,
     AtminfoComponent,
     BankinfoComponent,
     PassinfoComponent,
@@ -79,6 +81,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   providers: [
     MshortPipe,
     MslicePipe,
+    PassMaskPipe,
     WebapiService,
     DatashearService,
     MaskingPipe,
@@ -86,6 +89,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     NotepipePipe,
     PasspipePipe,
     BankpipePipe,
+    CardNoMaskPipe,
   ],
 })
 export class SharedModule { }

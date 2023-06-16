@@ -22,6 +22,9 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+textarea{
+    height: 100px !important;
+}
 
 /* for custom scrollbar for webkit browser*/
 ::-webkit-scrollbar {

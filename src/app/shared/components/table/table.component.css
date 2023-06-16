@@ -31,6 +31,7 @@ table {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+
 th {
     padding: 20px 15px;
     text-align: left;
@@ -40,6 +41,11 @@ th {
     text-transform: uppercase;
     cursor: pointer;
 }
+
+thead>tr>:first-child{
+    width: 100px;
+}
+
 
 
 .sort {
@@ -71,14 +77,22 @@ td {
     border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
+td>span{
+    font-size: .8rem;
+}
 
-tr>td:first-child,
+tbody>tr>:first-child{
+    text-align: center;
+    width: 100px;
+}
+
+/* tr>td:first-child,
 tr>th:first-child,
 tr>td:nth-child(2),
 tr>th:nth-child(2) {
     min-width: 60px;
     width: 10%;
-}
+} */
 
 
 .tbl-content>table>tbody>tr:hover {

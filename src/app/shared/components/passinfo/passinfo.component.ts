@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-passinfo',
@@ -7,11 +8,18 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
   styleUrls: ['./passinfo.component.css']
 })
 
-export class PassinfoComponent {
+export class PassinfoComponent implements OnInit {
+
+  title: string = 'Add Password';
+  hide: boolean = true;
+  edit_mode: boolean = false;
+  clickedIcons: boolean[] = [false, false, false, false, false, false, false, false, false];
+  status: boolean = true;
+
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.form = this.fb.group({
       url: ['', [Validators.required, this.multiplePatternValidator(this.getUrlPatterns())]],
       name: ['', Validators.required],
@@ -21,6 +29,21 @@ export class PassinfoComponent {
       notes: ['']
       // Other form controls
     });
+  }
+
+  ngOnInit(): void {
+    if (this.data.type === 'View') {
+      this.title = 'View Password';
+      this.form = this.fb.group({
+        url: [this.data.url],
+        name: [this.data.name],
+        username: [this.data.username],
+        loginid: [this.data.loginid],
+        password: [this.data.pass],
+        notes: [this.data.note]
+      });
+    }
+    console.log(this.data)
   }
 
   getUrlPatterns(): RegExp[] {
@@ -65,6 +88,16 @@ export class PassinfoComponent {
     if (this.form.valid) {
       // Form is valid, handle the submission
       console.log('Form submitted:', this.form.value);
+    } else {
+      // Form is invalid, display error messages or take appropriate action
+      console.log('Form is invalid');
+    }
+  }
+
+  onUpdate() {
+    if (this.form.valid) {
+      // Form is valid, handle the submission
+      console.log('Form Updated:', this.form.value);
     } else {
       // Form is invalid, display error messages or take appropriate action
       console.log('Form is invalid');

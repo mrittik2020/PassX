@@ -22,14 +22,14 @@
                     </div>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button id="btn1">Details</button>
+                    <button mat-button (click)="openViewDialog(item.id,item.name,item.rmn,item.bank_name,item.branch_name,item.acc_type,item.acc_number,item.ifsc_code,item.mirc_code,item.note)" id="btn1">Details</button>
                 </mat-card-actions>
             </mat-card>
         </div>
     </div>
     <div class="footer">
         <div class="add-data">
-            <button mat-fab matTooltip="Add New" color="primary"  (click)="openDialog()" aria-label="openDialog button">
+            <button mat-fab matTooltip="Add New" color="primary"  (click)="openFromDialog()" aria-label="openDialog button">
                 <mat-icon>add</mat-icon>
             </button>
         </div>

@@ -14,12 +14,12 @@
                                     </div>
                                 </th>
 
-                                <th (mouseenter)="mousein('icon-2')" (mouseleave)="mouseout('icon-2')">
+                                <!-- <th (mouseenter)="mousein('icon-2')" (mouseleave)="mouseout('icon-2')">
                                     <div class="sort">
                                         <span>Website</span>
-                                        <!-- <mat-icon id="icon-2" area-sort="none">arrow_upward</mat-icon> -->
+                                        <mat-icon id="icon-2" area-sort="none">arrow_upward</mat-icon>
                                     </div>
-                                </th>
+                                </th> -->
 
                                 <th (mouseenter)="mousein('icon-3')" (mouseleave)="mouseout('icon-3')"
                                     (click)="onClick('icon-3');fild='name';type='Str';">
@@ -40,7 +40,7 @@
                                 <th (mouseenter)="mousein('icon-5')" (mouseleave)="mouseout('icon-5')"
                                     (click)="onClick('icon-5');fild='dob';type='Date';">
                                     <div class="sort">
-                                        <span>DOB</span>
+                                        <span>URL</span>
                                         <mat-icon id="icon-5" area-sort="none">arrow_upward</mat-icon>
                                     </div>
                                 </th>
@@ -70,21 +70,24 @@
                     <tbody>
                         <tr
                             *ngFor="let user of dataSheet|mslice:currentPage:item_per_page|passpipe:filter|mshort:fild:type:order; ">
-                            <td>{{user.id}}</td>
-                            <td>
-                                <fa-icon [icon]=dd size="3x"></fa-icon>
+                            <td class="td1">
+                                <span>{{user.id}}</span>
                             </td>
-                            <td> {{user.name}}</td>
-                            <td> {{user.username}}</td>
-                            <td> {{user.dob}}</td>
-                            <td> {{user.last_seen}}</td>
+                            <td class="td2">
+                                <span>{{user.name}}</span>
+                            </td>
+                            <td class="td3">
+                                <span>{{user.username}}</span>
+                            </td>
+                            <td class="td4">
+                                <span>{{user.url}}</span>
+                            </td>
+                            <td class="td5">
+                                <span>{{user.last_seen}}</span>
+                            </td>
                             <td id="action-btn">
-                                <button class="act_btn" [id]="'b'+user.id" mat-raised-button (click)="edit(user.id)"
+                                <button class="act_btn" mat-raised-button (click)="openViewDialog(user.id,user.name,user.url,user.username,user.loginid,user.password,user.notes)"
                                     color="primary">Edit</button>
-                                <div class="edit_d{{user.id}} editbtn">
-                                    <button mat-raised-button color="primary">Save</button>
-                                    <button mat-raised-button (click)="cancel(user.id)" color="warn">Cancel</button>
-                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -92,6 +95,9 @@
             </div>
         </div>
 
+
+
+        
         <div class="page-nav">
             <div class="select">
                 <p>Item per page</p>
@@ -132,7 +138,7 @@
             </div>
 
             <div class="add-data">
-                <button mat-fab matTooltip="Add New" color="primary" (click)="openDialog()" aria-label=" openDialog button">
+                <button mat-fab matTooltip="Add New" color="primary" (click)="openFormDialog()" aria-label=" openDialog button">
                     <mat-icon>add</mat-icon>
                 </button>
             </div>
