@@ -46,12 +46,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import {MatIconRegistry} from '@angular/material/icon';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -77,6 +80,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatBadgeModule,
     MatChipsModule,
     MatIconModule,
+    // MatIconRegistry,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatRippleModule,
@@ -87,8 +91,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-
     FontAwesomeModule,
+    ClipboardModule,
+
+
+   
   ],
 
   exports: [
@@ -117,6 +124,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatBadgeModule,
     MatChipsModule,
     MatIconModule,
+    // MatIconRegistry,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatRippleModule,
@@ -128,6 +136,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatSortModule,
     MatTableModule,
     FontAwesomeModule,
+    ClipboardModule,
   ]
 })
 export class MaterialModule { }

@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     RouterModule,
     FontAwesomeModule,
+    ClipboardModule,
+    MatDatepickerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
