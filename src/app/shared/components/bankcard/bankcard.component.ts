@@ -50,7 +50,7 @@ export class BankcardComponent implements OnInit, OnDestroy {
     this.ddf = this.dataShare.data$.subscribe((data) => {
       this.filter = data;
     });
-    console.log(this.dataChild);
+    // console.log(this.dataChild);
   }
 
   ngOnDestroy(): void {

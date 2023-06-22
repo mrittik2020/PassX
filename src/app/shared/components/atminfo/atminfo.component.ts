@@ -39,21 +39,25 @@ export class AtminfoComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       // Form is valid, handle the submission
-      console.log('Form submitted:', this.form.value);
+      // console.log('Form submitted:', this.form.value);
     } else {
       // Form is invalid, display error messages or take appropriate action
-      console.log('Form is invalid');
+      // console.log('Form is invalid');
     }
   }
 
   onUpdate() {
     if (this.form.valid) {
       // Form is valid, handle the submission
-      console.log('Form Updated:', this.form.value);
+      // console.log('Form Updated:', this.form.value);
     } else {
       // Form is invalid, display error messages or take appropriate action
-      console.log('Form is invalid');
+      // console.log('Form is invalid');
     }
+  }
+
+  onDelete(id: string) {
+    // console.log(id);
   }
 
   generateYearRange(currentYear: number, numYears: number): number[] {
@@ -80,7 +84,7 @@ export class AtminfoComponent implements OnInit {
     const currentYear = new Date().getFullYear();
     this.years = this.generateYearRange(currentYear, 10);
 
-    console.log(data);
+    // console.log(data);
   }
   
 

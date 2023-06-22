@@ -43,7 +43,7 @@ export class PassinfoComponent implements OnInit {
         notes: [this.data.note]
       });
     }
-    console.log(this.data)
+    // console.log(this.data);
   }
 
   getUrlPatterns(): RegExp[] {
@@ -87,21 +87,25 @@ export class PassinfoComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       // Form is valid, handle the submission
-      console.log('Form submitted:', this.form.value);
+      // console.log('Form submitted:', this.form.value);
     } else {
       // Form is invalid, display error messages or take appropriate action
-      console.log('Form is invalid');
+      // console.log('Form is invalid');
     }
   }
 
   onUpdate() {
     if (this.form.valid) {
       // Form is valid, handle the submission
-      console.log('Form Updated:', this.form.value);
+      // console.log('Form Updated:', this.form.value);
     } else {
       // Form is invalid, display error messages or take appropriate action
-      console.log('Form is invalid');
+      // console.log('Form is invalid');
     }
+  }
+
+  onDelete(id: string) {
+    // console.log(id);
   }
 
 

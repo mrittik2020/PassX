@@ -92,6 +92,13 @@
                 </div>
             </div>
         </mat-dialog-content>
+
+        <mat-divider></mat-divider>
+
+        <mat-dialog-actions align="center">
+            <button mat-raised-button color="warn" [mat-dialog-close]="true"
+                [disabled]="!form.valid" (click)="onDelete(data.cno)">Delete This Data</button>
+        </mat-dialog-actions>
     </div>
 
 </ng-template>
