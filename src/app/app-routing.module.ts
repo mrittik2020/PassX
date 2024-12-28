@@ -10,6 +10,7 @@ import { PasswordsComponent } from './pages/components/passwords/passwords.compo
 import { NotesComponent } from './pages/components/notes/notes.component';
 import { CardsComponent } from './pages/components/cards/cards.component';
 import { BankComponent } from './pages/components/bank/bank.component';
+import { homeGuard } from './authentication/guard/home.guard';
 
 
 
@@ -18,11 +19,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  
-
   { path: 'forgot_password', component: ForgetpassComponent },
+
+
   {
-    path: 'home', component: HomeComponent,
+    path: 'home', canActivate: [homeGuard], component: HomeComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
@@ -33,8 +34,8 @@ const routes: Routes = [
 
     ]
   },
-  
-  
+
+
 ];
 
 @NgModule({
