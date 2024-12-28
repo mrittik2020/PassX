@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -20,35 +20,23 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AuthenticationModule } from './authentication/authentication.module';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AuthModule,
-    MaterialModule,
-    PagesModule,
-    SharedModule,
-    BrowserAnimationsModule,
-
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    RouterModule,
-    FontAwesomeModule,
-    ClipboardModule,
-    MatDatepickerModule,
-    AuthenticationModule
-    
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  exports: [
-
-  ]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+    ],
+    bootstrap: [AppComponent],
+    exports: [], imports: [BrowserModule,
+        AppRoutingModule,
+        AuthModule,
+        MaterialModule,
+        PagesModule,
+        SharedModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        FontAwesomeModule,
+        ClipboardModule,
+        MatDatepickerModule,
+        AuthenticationModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
